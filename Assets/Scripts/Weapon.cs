@@ -69,12 +69,14 @@ public class Weapon : MonoBehaviour {
     }
 
     void FireAmmo() {
-        Vector3 mousePosition =
-        Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         GameObject ammo = SpawnAmmo(transform.position);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (ammo != null) {
             Arc arcScript = ammo.GetComponent<Arc>();
-            float travelDuration = 1.0f / _weaponVelocity;
+            float travelDuration = 1.0f / _weaponVelocity;  
+            mousePosition.x = Mathf.Clamp(mousePosition.x, player.transform.position.x - 3f, player.transform.position.x + 3f);
+            mousePosition.y = Mathf.Clamp(mousePosition.y, player.transform.position.y - 3f, player.transform.position.y + 3f);
             StartCoroutine(arcScript.TravelArc(mousePosition, travelDuration));
         }
     }
