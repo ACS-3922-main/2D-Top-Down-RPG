@@ -18,7 +18,7 @@ public class SpawnPoint2 : MonoBehaviour
 
     public GameObject SpawnObject() {
         _enemyCount++;
-        if (_prefabToSpawn != null && _enemyCount<6) {
+        if (_prefabToSpawn != null && _enemyCount<8) {
             return Instantiate(_prefabToSpawn, transform.
             position, Quaternion.identity);
         }
