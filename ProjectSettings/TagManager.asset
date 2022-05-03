@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - PickUp
+  - VirtualCamera
+  - MyNewBoundary
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Blocking
   - Enemies
   - Consumables
-  - 
+  - Ammo
   - 
   - 
   - 

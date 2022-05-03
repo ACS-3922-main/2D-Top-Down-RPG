@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6907395276632974591}
   - component: {fileID: 392075103869027726}
   - component: {fileID: 5459421806415747630}
+  - component: {fileID: -6654396046629117147}
   m_Layer: 10
   m_Name: Coin
   m_TagString: PickUp
@@ -119,3 +120,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-6654396046629117147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685508312831135145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b39310d3d66234aaa08683b7f88a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 11400000, guid: 6fdc3f54ac6983c4a80649aa233dd6a7, type: 2}

@@ -4,17 +4,7 @@ public class MovementController : MonoBehaviour {
     [SerializeField] private float _movementSpeed = 3.0f;
     private Vector2 _movement = new Vector2();
     private Animator _anim;
-    private string _animationState = "AnimationState";
     private Rigidbody2D _rb;
-
-    enum CharStates {
-        walkEast = 1,
-        walkSouth = 2,
-        walkWest = 3,
-        walkNorth = 4,
-
-        idleSouth = 5
-    }
 
     private void Start() {
         _anim = GetComponent<Animator>();
@@ -36,21 +26,15 @@ public class MovementController : MonoBehaviour {
         _rb.velocity = _movement * _movementSpeed;
     }
 
-    private void UpdateState() {
-        if (_movement.x > 0) {
-            _anim.SetInteger(_animationState, (int)CharStates.walkEast);
-        }
-        else if (_movement.x < 0) {
-            _anim.SetInteger(_animationState, (int)CharStates.walkWest);
-        }
-        else if (_movement.y > 0) {
-            _anim.SetInteger(_animationState, (int)CharStates.walkNorth);
-        }
-        else if (_movement.y < 0) {
-            _anim.SetInteger(_animationState, (int)CharStates.walkSouth);
+    void UpdateState() {
+        if (Mathf.Approximately(_movement.x, 0) &&
+            Mathf.Approximately(_movement.y, 0)) {
+            _anim.SetBool("isWalking", false);
         }
         else {
-            _anim.SetInteger(_animationState, (int)CharStates.idleSouth);
+            _anim.SetBool("isWalking", true);
         }
-    }
+        _anim.SetFloat("xDir", _movement.x);
+        _anim.SetFloat("yDir", _movement.y);
+        }
 }
